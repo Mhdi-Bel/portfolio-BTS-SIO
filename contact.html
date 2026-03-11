@@ -5,6 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact - Mehdi Belmiloud</title>
+    <script>
+        if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
+    <style>
+        html, body { background-color: #f8fafc; color: #334155; }
+        html.dark, html.dark body { background-color: #020617; color: #cbd5e1; }
+    </style>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="tailwind-config.js"></script>
@@ -14,7 +25,7 @@
 <body class="bg-slate-50 dark:bg-darker text-slate-700 dark:text-slate-300 font-sans antialiased selection:bg-primary selection:text-white relative">
 
     <!-- === BACKGROUND === -->
-    <div class="fixed inset-0 z-[-1] pointer-events-none">
+    <div class="fixed inset-0 pointer-events-none">
         <div class="absolute inset-0 bg-slate-50 dark:bg-darker"></div>
         <div
             class="absolute top-10 left-10 w-72 h-72 bg-primary/20 rounded-full blur-[100px] animate-blob dark:mix-blend-screen mix-blend-multiply opacity-60 dark:opacity-40">
@@ -153,8 +164,8 @@
                                     </div>
                                     <div class="pt-1 flex-1">
                                         <h3 class="text-slate-900 dark:text-white font-bold text-sm">Email</h3>
-                                        <a href="mailto:contact@mehdi.dev"
-                                            class="text-sm text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors break-all">contact@mehdi.dev</a>
+                                        <a href="mailto:pro@mehdi-belmiloud.fr"
+                                            class="text-sm text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors break-all">pro@mehdi-belmiloud.fr</a>
                                     </div>
                                 </div>
 
@@ -187,7 +198,7 @@
                                     class="absolute inset-0 bg-violet-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 mix-blend-overlay">
                                 </div>
 
-                                <div class="flex items-center gap-4 relative z-10">
+                                <div class="flex flex-col sm:flex-row items-center sm:justify-between gap-4 relative z-10">
 
                                     <div class="w-12 h-10 relative flex items-center justify-center shrink-0">
 
@@ -195,16 +206,16 @@
                                             class="absolute inset-0 rounded-full bg-violet-500/20 blur-xl opacity-0 animate-gojo-purple delay-100">
                                         </div>
                                         <div
-                                            class="absolute left-0 w-3 h-3 rounded-full bg-red-500 shadow-[0_0_15px_rgba(239,68,68,1)] animate-gojo-red z-10">
+                                            class="absolute left-0 w-3 h-3 rounded-full bg-red-500 shadow-[0_0_15px_theme(colors.red.500)] animate-gojo-red z-10">
                                         </div>
                                         <div
-                                            class="absolute right-0 w-3 h-3 rounded-full bg-blue-600 shadow-[0_0_15px_rgba(37,99,235,1)] animate-gojo-blue z-10">
+                                            class="absolute right-0 w-3 h-3 rounded-full bg-blue-600 shadow-[0_0_15px_theme(colors.blue.600)] animate-gojo-blue z-10">
                                         </div>
                                         <div
-                                            class="absolute w-4 h-4 rounded-full bg-white shadow-[0_0_30px_rgba(139,92,246,1)] animate-gojo-purple mix-blend-screen z-20">
+                                            class="absolute w-4 h-4 rounded-full bg-white shadow-[0_0_30px_theme(colors.violet.500)] animate-gojo-purple mix-blend-overlay dark:mix-blend-screen z-20">
                                         </div>
                                         <div
-                                            class="absolute w-4 h-4 rounded-full bg-violet-600 mix-blend-multiply animate-gojo-purple z-20">
+                                            class="absolute w-4 h-4 rounded-full bg-violet-500 animate-gojo-purple mix-blend-multiply dark:mix-blend-color-dodge z-20">
                                         </div>
                                     </div>
 
@@ -222,11 +233,9 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="text-right shrink-0">
-                                        <div class="text-[10px] text-slate-500 font-bold uppercase tracking-wider">État
-                                            du système</div> 
-                                        <div
-                                            class="text-xs font-bold flex items-center justify-end gap-2 animate-text-glitch text-slate-800 dark:text-current">
+                                    <div class="text-center sm:text-right shrink-0">
+                                        <div class="text-[10px] text-slate-500 font-bold uppercase tracking-wider">Équation imaginaire</div> 
+                                        <div class="text-xs font-bold flex items-center justify-center sm:justify-end gap-2 animate-text-glitch">
                                             Hollow Purple <span
                                                 class="w-1.5 h-1.5 rounded-full bg-violet-500 shadow-[0_0_5px_rgba(139,92,246,0.8)]"></span>
                                         </div>

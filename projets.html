@@ -5,6 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projets - Mehdi Belmiloud</title>
+    <script>
+        if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
+    <style>
+        html, body { background-color: #f8fafc; color: #334155; }
+        html.dark, html.dark body { background-color: #020617; color: #cbd5e1; }
+    </style>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="tailwind-config.js"></script>
@@ -14,7 +25,7 @@
 <body class="bg-slate-50 dark:bg-darker text-slate-700 dark:text-slate-300 font-sans antialiased selection:bg-primary selection:text-white relative">
 
     <!-- === BACKGROUND === -->
-    <div class="fixed inset-0 z-[-1] pointer-events-none">
+    <div class="fixed inset-0 pointer-events-none">
         <div class="absolute inset-0 bg-slate-50 dark:bg-darker"></div>
         <div
             class="absolute top-0 left-0 w-96 h-96 bg-primary/20 rounded-full blur-[100px] animate-blob dark:mix-blend-screen mix-blend-multiply opacity-60 dark:opacity-50">
@@ -138,7 +149,7 @@
                                     Portfolio 2026</h3>
                                 <span class="text-xs text-secondary font-mono">En cours</span>
                             </div>
-                            <a href="#"
+                            <a href="https://portfolio-mehdi-belmiloud.vercel.app/" target="_blank" aria-label="Voir le projet"
                                 class="w-8 h-8 rounded-full bg-slate-100 dark:bg-white/5 flex items-center justify-center text-slate-500 dark:text-slate-400 hover:bg-primary hover:text-white transition-all"><i
                                     class="fas fa-eye text-xs"></i></a>
                         </div>

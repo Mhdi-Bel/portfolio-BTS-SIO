@@ -51,9 +51,9 @@ tailwind.config = {
                     '53%, 100%': { transform: 'translate(0, 0)' }
                 },
                 'text-glitch': {
-                    '0%, 49%': { color: 'white', textShadow: 'none' },
-                    '50%, 55%': { color: '#a78bfa', textShadow: '2px 0 #ef4444, -2px 0 #3b82f6' },
-                    '56%, 100%': { color: 'white', textShadow: 'none' }
+                    '0%, 49%': { color: 'var(--text-glitch-normal-color)', textShadow: 'none' },
+                    '50%, 55%': { color: 'var(--text-glitch-glitch-color)', textShadow: '2px 0 #ef4444, -2px 0 #3b82f6' },
+                    '56%, 100%': { color: 'var(--text-glitch-normal-color)', textShadow: 'none' }
                 },
                 charge: {
                     '0%': { width: '0%', opacity: 0.5 },

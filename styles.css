@@ -5,12 +5,6 @@
     width: 10px;
 } 
 
-/* BACKGROUND DE SECOURS (Si Tailwind charge mal) */
-body {
-    background-color: #020617; /* Couleur 'darker' */
-    color: #cbd5e1; /* Couleur 'slate-300' */
-}
-
 /* --- Dark Theme Scrollbar (Default) --- */
 ::-webkit-scrollbar-track { 
     background: #020617;
@@ -82,4 +76,15 @@ body {
 .reveal.active .skill-panel {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* CSS Variables for theme-aware animations */
+:root {
+    --text-glitch-normal-color: #1e293b; /* slate-800 */
+    --text-glitch-glitch-color: #7c3aed; /* violet-600 */
+}
+
+.dark {
+    --text-glitch-normal-color: #cbd5e1; /* slate-300 */
+    --text-glitch-glitch-color: #a78bfa; /* violet-400 */
 }

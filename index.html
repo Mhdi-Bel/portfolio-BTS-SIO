@@ -4,6 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio - Étudiant BTS SIO</title>
+    <script>
+        if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
+    <style>
+        html, body { background-color: #f8fafc; color: #334155; }
+        html.dark, html.dark body { background-color: #020617; color: #cbd5e1; }
+    </style>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="tailwind-config.js"></script>
@@ -12,7 +23,7 @@
 <body class="bg-slate-50 dark:bg-darker text-slate-700 dark:text-slate-300 font-sans antialiased selection:bg-primary selection:text-white relative">
 
     <!-- === BACKGROUND === -->
-    <div class="fixed inset-0 z-[-1] pointer-events-none">
+    <div class="fixed inset-0 pointer-events-none">
         <div class="absolute inset-0 bg-[linear-gradient(to_right,rgba(128,128,128,0.07)_1px,transparent_1px),linear-gradient(to_bottom,rgba(128,128,128,0.07)_1px,transparent_1px)] bg-[size:24px_24px]"></div>
         <div class="absolute inset-0 bg-slate-50 dark:bg-darker [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black_100%)] dark:opacity-80"></div>
         <div id="global-spotlight" class="absolute w-[600px] h-[600px] bg-primary/5 dark:bg-primary/10 rounded-full blur-[120px] -translate-x-1/2 -translate-y-1/2 opacity-0 transition-opacity duration-500"></div>
@@ -76,7 +87,8 @@
                 </h1>
                 
                 <p class="text-lg text-slate-700 dark:text-slate-400 mb-8 max-w-lg leading-relaxed mx-auto lg:mx-0">
-                    En quête d'excellence technique, je transforme vos besoins métiers en outils numériques innovants.
+                    <span class="italic">"Any fool can write code that a computer can understand. Good programmers write code that humans can understand."</span>
+                    <span class="block text-sm mt-2 opacity-80">— Martin Fowler</span>
                 </p>
                 
                 <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4">
