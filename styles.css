@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+/* Scrollbar personnalisée */
+::-webkit-scrollbar {
+    width: 10px;
+} 
+
+/* BACKGROUND DE SECOURS (Si Tailwind charge mal) */
+body {
+    background-color: #020617; /* Couleur 'darker' */
+    color: #cbd5e1; /* Couleur 'slate-300' */
+}
+
+/* --- Dark Theme Scrollbar (Default) --- */
+::-webkit-scrollbar-track { 
+    background: #020617;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #334155; /* slate-700 */
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #475569; /* slate-600 */
+}
+
+/* --- Light Theme Scrollbar --- */
+[data-theme="light"] ::-webkit-scrollbar-track {
+    background: #e2e8f0; /* slate-200 */
+}
+
+[data-theme="light"] ::-webkit-scrollbar-thumb {
+    background: #94a3b8; /* slate-400 */
+}
+
+[data-theme="light"] ::-webkit-scrollbar-thumb:hover {
+    background: #64748b; /* slate-500 */
+}
+
+/* Animation Reveal au scroll */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Aurora hover effect for objective cards AND project cards */
+.objective-card::before,
+.project-card::before,
+.contact-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit; /* Utilise le radius du parent */
+    background: radial-gradient(400px circle at var(--x) var(--y), rgba(99, 102, 241, 0.15), transparent 80%);
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.objective-card:hover::before,
+.project-card:hover::before,
+.contact-card:hover::before {
+    opacity: 1;
+}
+
+/* Accordion Skills Panel */
+.skill-panel {
+    /* Les styles de fond et de bordure sont maintenant gérés par les classes Tailwind */
+    transition: flex-grow 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.reveal.active .skill-panel {
+    opacity: 1;
+    transform: translateY(0);
+}

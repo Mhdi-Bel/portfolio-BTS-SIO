@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Étudiant BTS SIO</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="tailwind-config.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-slate-50 dark:bg-darker text-slate-700 dark:text-slate-300 font-sans antialiased selection:bg-primary selection:text-white relative">
+
+    <!-- === BACKGROUND === -->
+    <div class="fixed inset-0 z-[-1] pointer-events-none">
+        <div class="absolute inset-0 bg-[linear-gradient(to_right,rgba(128,128,128,0.07)_1px,transparent_1px),linear-gradient(to_bottom,rgba(128,128,128,0.07)_1px,transparent_1px)] bg-[size:24px_24px]"></div>
+        <div class="absolute inset-0 bg-slate-50 dark:bg-darker [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black_100%)] dark:opacity-80"></div>
+        <div id="global-spotlight" class="absolute w-[600px] h-[600px] bg-primary/5 dark:bg-primary/10 rounded-full blur-[120px] -translate-x-1/2 -translate-y-1/2 opacity-0 transition-opacity duration-500"></div>
+    </div>
+
+    <!-- === NAVIGATION === -->
+    <nav id="navbar" class="fixed top-6 left-0 right-0 z-50 flex justify-center px-4 pointer-events-none transition-transform duration-300 ease-out">
+        <div class="pointer-events-auto bg-white/80 dark:bg-darker/70 backdrop-blur-xl border border-slate-900/10 dark:border-white/10 rounded-full px-2 py-2 sm:px-6 sm:py-3 flex items-center shadow-2xl shadow-primary/5 ring-1 ring-black/5 dark:ring-white/5 transition-all duration-300 hover:border-slate-900/20 dark:hover:border-white/20 hover:shadow-primary/10 dark:hover:shadow-primary/20">
+            
+            <!-- Logo -->
+            <a href="index.html" class="px-2 sm:px-3 py-1 font-bold text-lg text-slate-900 dark:text-white tracking-tighter flex items-center gap-2 group">
+                <div class="w-8 h-8 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-white text-xs shadow-lg group-hover:rotate-12 transition-transform">MB</div>
+                <span class="hidden sm:inline transition-colors">Lnnzzz</span>
+            </a>
+
+            <div class="w-px h-6 bg-slate-900/20 dark:bg-white/10 mx-1 sm:mx-4"></div>
+
+            <div class="flex items-center gap-1 sm:gap-2">
+                <a href="index.html" class="relative px-3 sm:px-4 py-2 rounded-full text-sm font-medium text-slate-900 dark:text-white bg-slate-900/10 dark:bg-white/10 transition-all shadow-[0_0_15px_rgba(0,0,0,0.05)] dark:shadow-[0_0_15px_rgba(255,255,255,0.1)]">
+                    Accueil
+                </a>
+                
+                <a href="projets.html" class="relative px-3 sm:px-4 py-2 rounded-full text-sm font-medium text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-900/5 dark:hover:bg-white/5 transition-all">
+                    Projets
+                </a>
+
+                <a href="contact.html" class="ml-1 sm:ml-2 p-3 sm:px-5 sm:py-2 rounded-full bg-gradient-to-r from-primary to-secondary text-white text-sm font-bold shadow-lg shadow-primary/25 hover:shadow-secondary/40 hover:scale-105 transition-all flex items-center justify-center">
+                    <span class="hidden sm:inline-block sm:mr-2">Contact</span>
+                    <i class="fas fa-paper-plane text-xs"></i>
+                </a>
+
+                <!-- Theme Toggle -->
+                <button id="theme-toggle" type="button" class="ml-1 sm:ml-2 w-10 h-10 flex items-center justify-center rounded-full bg-slate-200 dark:bg-white/5 hover:bg-slate-300 dark:hover:bg-white/10 text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-white transition-all">
+                    <span class="sr-only">Toggle theme</span>
+                    <svg id="theme-toggle-dark-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+                    <svg id="theme-toggle-light-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.707.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 5.05A1 1 0 003.636 6.464l.707.707a1 1 0 001.414-1.414l-.707-.707zM3 11a1 1 0 100-2H2a1 1 0 100 2h1zM13.536 14.95a1 1 0 011.414 0l.707.707a1 1 0 01-1.414 1.414l-.707-.707a1 1 0 010-1.414z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- === SECTION HERO === -->
+    <section id="hero" class="min-h-screen flex items-center relative overflow-hidden pt-28 pb-12 lg:py-0">
+        <div class="absolute top-20 right-0 w-[500px] h-[500px] bg-primary/20 rounded-full blur-[120px] -z-10"></div>
+        <div class="absolute bottom-0 left-0 w-[300px] h-[300px] bg-secondary/10 rounded-full blur-[100px] -z-10"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full grid lg:grid-cols-2 gap-12 items-center">
+            <div class="reveal text-center lg:text-left">
+                <div class="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-[#4caf50]/10 border border-[#4caf50]/30 text-[#4caf50] text-sm font-bold mb-8 shadow-[0_0_20px_rgba(76,175,80,0.2)] hover:shadow-[0_0_25px_rgba(76,175,80,0.4)] hover:bg-[#4caf50]/20 transition-all duration-300 cursor-default mx-auto lg:mx-0">
+                    <span class="relative flex h-3 w-3">
+                      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#4caf50] opacity-75"></span>
+                      <span class="relative inline-flex rounded-full h-3 w-3 bg-[#4caf50]"></span>
+                    </span>
+                    #OpenToWork : Alternance 2025
+                </div>
+                
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-900 dark:text-white mb-6 leading-tight tracking-tight">
+                    <span class="block text-2xl sm:text-3xl lg:text-4xl text-slate-500 dark:text-slate-400 font-medium mb-2">Je suis</span>
+                    <span id="typewriter" class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary"></span>
+                    <span class="text-primary animate-pulse">_</span>
+                </h1>
+                
+                <p class="text-lg text-slate-700 dark:text-slate-400 mb-8 max-w-lg leading-relaxed mx-auto lg:mx-0">
+                    En quête d'excellence technique, je transforme vos besoins métiers en outils numériques innovants.
+                </p>
+                
+                <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4">
+                    <!-- Bouton Projets -->
+                    <a href="projets.html" class="group relative px-8 py-4 bg-gradient-to-r from-primary to-secondary rounded-full text-white font-bold shadow-[0_0_20px_rgba(99,102,241,0.4)] hover:shadow-[0_0_40px_rgba(6,182,212,0.6)] hover:scale-105 transition-all duration-300 overflow-hidden">
+                        <div class="absolute inset-0 bg-white/20 translate-x-[-100%] group-hover:animate-shimmer skew-x-12"></div>
+                        <span class="relative flex items-center gap-2">
+                            Voir mes projets <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                        </span>
+                    </a>
+                    
+                    <!-- Boutons Contact -->
+                    <div class="flex items-center gap-4">
+                        
+                        <a href="contact.html" class="group relative px-6 py-4 rounded-full border border-slate-900/10 dark:border-white/10 bg-slate-900/5 dark:bg-white/5 text-slate-600 dark:text-slate-300 font-medium overflow-hidden transition-all hover:border-slate-900/20 dark:hover:border-white/30 hover:text-slate-800 dark:hover:text-white hover:bg-slate-900/10 dark:hover:bg-white/10">
+                            <div class="absolute inset-0 bg-slate-900/10 dark:bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
+                            <span class="relative flex items-center gap-2">
+                                Contact <i class="fas fa-paper-plane text-secondary"></i>
+                            </span>
+                        </a>
+
+                        <!-- Téléchargement CV -->
+                        <a href="assets/CV-Mehdi-Belmiloud.pdf" download class="group relative px-6 py-4 rounded-full border border-slate-900/10 dark:border-white/10 bg-slate-900/5 dark:bg-white/5 text-slate-600 dark:text-slate-300 font-medium overflow-hidden transition-all hover:border-primary/50 hover:text-slate-800 dark:hover:text-white hover:shadow-[0_0_20px_rgba(99,102,241,0.2)]">
+                            <div class="absolute inset-0 bg-gradient-to-r from-primary/10 to-secondary/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
+                            <span class="relative flex items-center gap-2">
+                                CV <i class="fas fa-download text-primary"></i>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="reveal hidden lg:block relative">
+                <div class="absolute -inset-1 bg-gradient-to-r from-primary to-secondary rounded-2xl blur opacity-30"></div>
+                
+                <div class="relative bg-white dark:bg-darker border border-slate-200 dark:border-white/10 rounded-2xl p-6 shadow-2xl font-mono text-sm leading-relaxed overflow-hidden">
+                    <div class="flex gap-2 mb-4 border-b border-slate-200 dark:border-white/5 pb-4">
+                        <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                        <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                        <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                        <div class="ml-auto text-xs text-slate-400 dark:text-slate-500">profile.json</div>
+                    </div>
+                    
+                    <!-- Code -->
+                    <div class="text-slate-600 dark:text-slate-300">
+                        <span class="text-pink-500">const</span> <span class="text-blue-400">developer</span> = {<br>
+                        &nbsp;&nbsp;name: <span class="text-green-400">'Mehdi'</span>,<br>
+                        &nbsp;&nbsp;role: <span class="text-green-400">'Étudiant BTS SIO'</span>,<br>
+                        &nbsp;&nbsp;skills: [<span class="text-green-400">'Java'</span>, <span class="text-green-400">'PHP'</span>, <span class="text-green-400">'Symfony'</span>],<br>
+                        &nbsp;&nbsp;hardWorker: <span class="text-orange-400">true</span>,<br>
+                        &nbsp;&nbsp;hireable: <span class="text-orange-400">function</span>() {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-pink-500">return</span> <span class="text-orange-400">true</span>;<br>
+                        &nbsp;&nbsp;}<br>
+                        };
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- === SECTION À PROPOS === -->
+    <section id="about" class="py-24 bg-slate-100/50 dark:bg-dark/50 relative overflow-hidden backdrop-blur-sm">
+        <div class="absolute top-1/2 left-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -translate-y-1/2 pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 reveal group">
+            <div class="mb-16 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-4">À propos de moi</h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                
+                <!-- Carte 1 : Présentation Principale -->
+                <div class="md:col-span-2 relative group overflow-hidden rounded-2xl bg-white dark:bg-darker border border-slate-200 dark:border-white/10 p-8 hover:border-primary/30 transition-all">
+                    
+                    <div class="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-primary/5 to-transparent rounded-bl-full -mr-16 -mt-16 transition-transform group-hover:scale-110"></div>
+                    
+                    <div class="relative z-10">
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-white shadow-lg shadow-primary/20">
+                                <i class="fas fa-laptop-code text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-slate-900 dark:text-white">Profil</h3>
+                                <p class="text-primary text-xs font-mono uppercase tracking-wider">BTS SIO</p>
+                            </div>
+                        </div>
+                        
+                        <div class="space-y-4 text-slate-600 dark:text-slate-400 leading-relaxed">
+                            <p>
+                                Actuellement en <strong class="text-slate-800 dark:text-white">1ère année de BTS SIO SLAM</strong>, je suis disponible immédiatement pour un contrat d'alternance de <strong class="text-slate-800 dark:text-white">12 mois</strong> (rythme 1 semaine sur 2).
+                            </p>
+                            <p>
+                                Opérationnel sur l'écosystème <strong class="text-secondary">Symfony</strong> et <strong class="text-secondary">JavaFX</strong>, je combine logique algorithmique et maîtrise technique pour concevoir des interfaces dynamiques et booster vos projets.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Carte 2 : Statut Alternance -->
+                <div class="relative group overflow-hidden rounded-2xl p-[1px] h-full bg-slate-200 dark:bg-transparent">
+                    <div class="absolute inset-[-100%] bg-[conic-gradient(from_90deg_at_50%_50%,#f1f5f9_50%,#6366f1_50%,#06b6d4_100%)] dark:bg-[conic-gradient(from_90deg_at_50%_50%,#020617_50%,#6366f1_50%,#06b6d4_100%)] animate-[spin_4s_linear_infinite]"></div>
+
+                    <div class="relative bg-slate-50 dark:bg-darker h-full rounded-2xl p-6 flex flex-col items-center justify-center text-center overflow-hidden">
+                        <div class="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]"></div>
+
+                        <div class="relative z-10">
+                            <div class="w-16 h-16 mx-auto bg-dark border border-white/10 rounded-2xl flex items-center justify-center mb-4 shadow-[0_0_30px_-5px_rgba(99,102,241,0.6)] group-hover:scale-110 transition-transform duration-500">
+                                <i class="fas fa-rocket text-3xl text-transparent bg-clip-text bg-gradient-to-br from-primary to-secondary"></i>
+                            </div>
+
+                            <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-1">Alternance 2025</h3>
+                            <p class="text-primary font-mono text-xs mb-4 tracking-widest uppercase">Ready to Deploy</p>
+                            
+                            <div class="px-4 py-2 rounded-lg bg-slate-200 dark:bg-white/5 border border-slate-300 dark:border-white/10 backdrop-blur-sm">
+                                <div class="flex items-center gap-3 text-xs text-slate-600 dark:text-slate-300">
+                                    <span class="relative flex h-2 w-2">
+                                      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                                      <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                                    </span>
+                                    <span>Disponible dès Septembre</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white dark:bg-darker border border-slate-200 dark:border-white/10 rounded-2xl p-6 hover:border-primary/50 transition-all group shadow-lg flex flex-col justify-center relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-16 h-16 bg-gradient-to-bl from-primary/10 to-transparent rounded-bl-full"></div>
+                    
+                    <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-6 flex items-center gap-2">
+                        <i class="fas fa-chart-bar text-secondary"></i> Stats Profil
+                    </h3>
+                    
+                    <div class="space-y-5">
+                        <div class="group/stat">
+                            <div class="flex justify-between text-xs mb-2 text-slate-500 dark:text-slate-400 group-hover/stat:text-slate-900 dark:group-hover/stat:text-white transition-colors font-medium">
+                                <span>LOGIQUE & ANALYSE</span>
+                                <span class="text-primary">LVL. 90</span>
+                            </div>
+                            <div class="h-2 bg-slate-200 dark:bg-white/10 rounded-full overflow-hidden">
+                                <div class="h-full bg-gradient-to-r from-primary to-indigo-400 w-0 group-[.active]:w-[90%] transition-[width] ease-out duration-1000 shadow-[0_0_10px_rgba(99,102,241,0.4)]"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="group/stat">
+                            <div class="flex justify-between text-xs mb-2 text-slate-500 dark:text-slate-400 group-hover/stat:text-slate-900 dark:group-hover/stat:text-white transition-colors font-medium">
+                                <span>CURIOSITÉ TECH</span>
+                                <span class="text-secondary">MAX</span>
+                            </div>
+                            <div class="h-2 bg-slate-200 dark:bg-white/10 rounded-full overflow-hidden">
+                                <div class="h-full bg-gradient-to-r from-secondary to-cyan-300 w-0 group-[.active]:w-full transition-[width] ease-out duration-1000 delay-200 shadow-[0_0_10px_rgba(6,182,212,0.4)]"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="group/stat">
+                            <div class="flex justify-between text-xs mb-2 text-slate-500 dark:text-slate-400 group-hover/stat:text-slate-900 dark:group-hover/stat:text-white transition-colors font-medium">
+                                <span>ESPRIT D'ÉQUIPE</span>
+                                <span class="text-pink-500">LVL. 85</span>
+                            </div>
+                            <div class="h-2 bg-slate-200 dark:bg-white/10 rounded-full overflow-hidden">
+                                <div class="h-full bg-gradient-to-r from-pink-500 to-rose-400 w-0 group-[.active]:w-[85%] transition-[width] ease-out duration-1000 delay-400 shadow-[0_0_10px_rgba(236,72,153,0.4)]"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Carte 4 : Objectifs & Intérêts -->
+                <div class="md:col-span-2 bg-white dark:bg-darker border border-slate-200 dark:border-white/5 rounded-2xl p-8 hover:border-primary/30 transition-colors relative overflow-hidden group">
+                    <div class="absolute right-0 top-0 w-32 h-32 bg-secondary/5 rounded-full blur-2xl -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
+                    
+                    <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-6">Mes Objectifs</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                        <div class="objective-card relative overflow-hidden p-4 bg-slate-100 dark:bg-white/5 rounded-xl border border-slate-200 dark:border-white/5 transition-colors">
+                            <i class="fas fa-gamepad text-2xl text-purple-500 mb-3"></i>
+                            <h4 class="font-bold text-slate-800 dark:text-white text-sm">Créer un RPG</h4>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Développer mon propre jeu de rôle immersif de A à Z.</p>
+                        </div>
+                        <div class="objective-card relative overflow-hidden p-4 bg-slate-100 dark:bg-white/5 rounded-xl border border-slate-200 dark:border-white/5 transition-colors">
+                            <i class="fas fa-globe-europe text-2xl text-blue-500 mb-3"></i>
+                            <h4 class="font-bold text-slate-800 dark:text-white text-sm">Grands Projets</h4>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Contribuer à des projets d'envergure qui ont du sens.</p>
+                        </div>
+                        <div class="objective-card relative overflow-hidden p-4 bg-slate-100 dark:bg-white/5 rounded-xl border border-slate-200 dark:border-white/5 transition-colors">
+                            <i class="fas fa-layer-group text-2xl text-emerald-500 mb-3"></i>
+                            <h4 class="font-bold text-slate-800 dark:text-white text-sm">Architecture</h4>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Concevoir des systèmes logiciels robustes et évolutifs.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- === SECTION COMPÉTENCES === -->
+    <section id="skills" class="py-24 relative overflow-hidden">
+        <!-- Background decoration -->
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-primary/10 via-transparent to-transparent opacity-50"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-3xl md:text-5xl font-bold text-slate-900 dark:text-white mb-6">
+                    <span class="inline-block border-b-4 border-primary pb-2">Arsenal</span> Technique
+                </h2>
+                <p class="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto text-lg">
+                    Maîtrisant ces technologies clés, je cultive une forte capacité d'adaptation me permettant de monter rapidement en compétence sur d'autres outils selon les besoins de vos projets.
+                </p>
+            </div>
+
+            <div class="reveal flex flex-col lg:flex-row gap-4 h-auto lg:h-[400px] w-full" data-animated="false">
+                
+                <!-- Panneau 1 : Backend -->
+                <div class="skill-panel group relative flex-1 lg:hover:flex-[3] rounded-3xl overflow-hidden bg-white/80 dark:bg-darker/80 backdrop-blur-xl border border-slate-200 dark:border-white/10 hover:border-primary/50">
+                    <div class="hidden lg:flex absolute inset-0 flex-col items-center justify-center transition-opacity duration-300 group-hover:opacity-0 z-10">
+                        <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-6 border border-primary/20 ">
+                            <i class="fas fa-server text-xl"></i>
+                        </div>
+                        <span class="text-2xl font-bold text-slate-400 dark:text-slate-500 tracking-widest uppercase [writing-mode:vertical-rl] rotate-180">Backend</span>
+                    </div>
+                    
+                    <div class="relative h-full p-8 flex flex-col justify-end opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-all duration-500 lg:translate-y-4 lg:group-hover:translate-y-0">
+                        <div class="absolute inset-0 bg-gradient-to-t from-primary/10 dark:from-primary/20 via-transparent to-transparent opacity-50"></div>
+                        
+                        <div class="relative z-10">
+                            <h3 class="text-3xl font-bold text-slate-900 dark:text-white mb-2">Backend</h3>
+                            <p class="text-primary text-sm font-mono mb-6">Architecture & Data</p>
+                            
+                            <div class="space-y-4">
+                                <div class="flex items-center gap-4 p-3 rounded-xl bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/5 hover:bg-slate-200 dark:hover:bg-white/10 transition-colors">
+                                    <i class="fab fa-symfony text-2xl text-slate-800 dark:text-white"></i>
+                                    <div><div class="font-bold text-slate-800 dark:text-white">Symfony</div><div class="text-xs text-slate-500 dark:text-slate-400">API Platform, Doctrine</div></div>
+                                </div>
+                                <div class="flex items-center gap-4 p-3 rounded-xl bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/5 hover:bg-slate-200 dark:hover:bg-white/10 transition-colors">
+                                    <i class="fab fa-java text-2xl text-orange-500"></i>
+                                    <div><div class="font-bold text-slate-800 dark:text-white">Java</div><div class="text-xs text-slate-500 dark:text-slate-400">POO, JavaFX</div></div>
+                                </div>
+                                <div class="flex items-center gap-4 p-3 rounded-xl bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/5 hover:bg-slate-200 dark:hover:bg-white/10 transition-colors">
+                                    <i class="fab fa-php text-2xl text-indigo-400"></i>
+                                    <div><div class="font-bold text-slate-800 dark:text-white">PHP 8</div><div class="text-xs text-slate-500 dark:text-slate-400">Typage fort, Attributs</div></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Panneau 2 : Frontend -->
+                <div class="skill-panel group relative flex-1 lg:hover:flex-[3] rounded-3xl overflow-hidden bg-white/80 dark:bg-darker/80 backdrop-blur-xl border border-slate-200 dark:border-white/10 hover:border-secondary/50">
+                    <div class="hidden lg:flex absolute inset-0 flex-col items-center justify-center transition-opacity duration-300 group-hover:opacity-0 z-10">
+                        <div class="w-12 h-12 rounded-full bg-secondary/10 flex items-center justify-center text-secondary mb-6 border border-secondary/20">
+                            <i class="fas fa-code text-xl"></i>
+                        </div>
+                        <span class="text-2xl font-bold text-slate-400 dark:text-slate-500 tracking-widest uppercase [writing-mode:vertical-rl] rotate-180">Frontend</span>
+                    </div>
+                    
+                    <div class="relative h-full p-8 flex flex-col justify-end opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-all duration-500 lg:translate-y-4 lg:group-hover:translate-y-0">
+                        <div class="absolute inset-0 bg-gradient-to-t from-secondary/10 dark:from-secondary/20 via-transparent to-transparent opacity-50"></div>
+                        <div class="relative z-10">
+                            <h3 class="text-3xl font-bold text-slate-900 dark:text-white mb-2">Frontend</h3>
+                            <p class="text-secondary text-sm font-mono mb-6">UI & Interactivité</p>
+                            <div class="space-y-4">
+                                <div class="flex items-center gap-4 p-3 rounded-xl bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/5 hover:bg-slate-200 dark:hover:bg-white/10 transition-colors">
+                                    <i class="fab fa-js text-2xl text-yellow-400"></i>
+                                    <div><div class="font-bold text-slate-800 dark:text-white">JavaScript</div><div class="text-xs text-slate-500 dark:text-slate-400">ES6+, DOM, Fetch</div></div>
+                                </div>
+                                <div class="flex items-center gap-4 p-3 rounded-xl bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/5 hover:bg-slate-200 dark:hover:bg-white/10 transition-colors">
+                                    <i class="fas fa-wind text-2xl text-sky-400"></i>
+                                    <div><div class="font-bold text-slate-800 dark:text-white">Tailwind CSS</div><div class="text-xs text-slate-500 dark:text-slate-400">Responsive Design</div></div>
+                                </div>
+                                <div class="flex items-center gap-4 p-3 rounded-xl bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/5 hover:bg-slate-200 dark:hover:bg-white/10 transition-colors">
+                                    <i class="fab fa-html5 text-2xl text-orange-500"></i>
+                                    <div><div class="font-bold text-slate-800 dark:text-white">HTML5 / CSS3</div><div class="text-xs text-slate-500 dark:text-slate-400">Sémantique & Flexbox</div></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Panneau 3 : Outils & DevOps -->
+                <div class="skill-panel group relative flex-1 lg:hover:flex-[3] rounded-3xl overflow-hidden bg-white/80 dark:bg-darker/80 backdrop-blur-xl border border-slate-200 dark:border-white/10 hover:border-pink-500/50">
+                    <div class="hidden lg:flex absolute inset-0 flex-col items-center justify-center transition-opacity duration-300 group-hover:opacity-0 z-10">
+                        <div class="w-12 h-12 rounded-full bg-pink-500/10 flex items-center justify-center text-pink-500 mb-6 border border-pink-500/20">
+                            <i class="fas fa-tools text-xl"></i>
+                        </div>
+                        <span class="text-2xl font-bold text-slate-400 dark:text-slate-500 tracking-widest uppercase [writing-mode:vertical-rl] rotate-180">Outils</span>
+                    </div>
+                    
+                    <div class="relative h-full p-8 flex flex-col justify-end opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-all duration-500 lg:translate-y-4 lg:group-hover:translate-y-0">
+                        <div class="absolute inset-0 bg-gradient-to-t from-pink-500/10 dark:from-pink-500/20 via-transparent to-transparent opacity-50"></div>
+                        <div class="relative z-10">
+                            <h3 class="text-3xl font-bold text-slate-900 dark:text-white mb-2">Workflow</h3>
+                            <p class="text-pink-500 text-sm font-mono mb-6">DevOps & Outils</p>
+                            <div class="space-y-4">
+                                <div class="flex items-center gap-4 p-3 rounded-xl bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/5 hover:bg-slate-200 dark:hover:bg-white/10 transition-colors">
+                                    <i class="fab fa-git-alt text-2xl text-red-500"></i>
+                                    <div><div class="font-bold text-slate-800 dark:text-white">Git & GitHub</div><div class="text-xs text-slate-500 dark:text-slate-400">Versionning, CI/CD</div></div>
+                                </div>
+                                <div class="flex items-center gap-4 p-3 rounded-xl bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/5 hover:bg-slate-200 dark:hover:bg-white/10 transition-colors">
+                                    <i class="fas fa-database text-2xl text-blue-400"></i>
+                                    <div><div class="font-bold text-slate-800 dark:text-white">MySQL</div><div class="text-xs text-slate-500 dark:text-slate-400">Gestion de BDD</div></div>
+                                </div>
+                                <div class="flex items-center gap-4 p-3 rounded-xl bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/5 hover:bg-slate-200 dark:hover:bg-white/10 transition-colors">
+                                    <i class="fas fa-terminal text-2xl text-slate-500 dark:text-slate-400"></i>
+                                    <div><div class="font-bold text-slate-800 dark:text-white">VS Code</div><div class="text-xs text-slate-500 dark:text-slate-400">Environnement de Dev</div></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- === SECTION PARCOURS === -->
+    <section id="parcours" class="py-16 md:py-24 bg-slate-100/50 dark:bg-dark/50 backdrop-blur-sm">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-4">Mon Histoire</h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full mb-6"></div>
+                <p class="text-slate-600 dark:text-slate-400">Un parcours atypique guidé par la recherche du concret.</p>
+            </div>
+            
+            <div class="relative">
+                <div class="absolute left-6 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-primary via-secondary to-transparent md:-translate-x-1/2"></div>
+
+                <!-- Étape 1 : Stage MIMAYA -->
+                <div class="relative mb-12 md:mb-20">
+                    <div class="flex flex-col md:flex-row items-center">
+                        <div class="hidden md:block md:w-1/2"></div> <!-- Spacer Left -->
+                        <div class="flex md:w-1/2 md:justify-start md:pl-12 pl-16 relative">
+                            <span class="absolute left-6 md:left-0 md:-translate-x-1/2 top-0 md:top-6 flex items-center justify-center w-8 h-8 rounded-full bg-white dark:bg-dark border-2 border-secondary z-10 shadow-[0_0_15px_rgba(6,182,212,0.5)] -translate-x-1/2">
+                                <i class="fas fa-plane-departure text-[10px] text-secondary"></i>
+                            </span>
+                            <div class="bg-white dark:bg-darker border border-slate-200 dark:border-white/10 p-6 rounded-2xl relative w-full md:w-auto md:max-w-md group hover:border-secondary/50 transition-all shadow-lg">
+                                <div class="hidden md:block absolute top-6 -left-2 w-4 h-4 bg-white dark:bg-darker border-b border-l border-slate-200 dark:border-white/10 rotate-45 group-hover:border-secondary/50 transition-all"></div>
+                                <div class="md:hidden absolute top-6 -left-2 w-4 h-4 bg-white dark:bg-darker border-b border-l border-slate-200 dark:border-white/10 rotate-45 group-hover:border-primary/50 transition-all"></div>
+                                
+                                <span class="inline-block px-3 py-1 rounded-full bg-secondary/10 text-secondary text-xs font-bold mb-3 border border-secondary/20">Mai 2026 - Juil 2026</span>
+                                <h3 class="text-xl font-bold text-slate-900 dark:text-white">Stage International @ MIMAYA</h3>
+                                <p class="text-slate-600 dark:text-slate-400 text-sm mt-2 leading-relaxed">
+                                    <i class="fas fa-map-marker-alt mr-1 text-secondary"></i> Dubaï, EAU<br>
+                                    Développement Fullstack pour une startup cosmétique. Mise en pratique des compétences BTS en environnement réel.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Étape 2 : BTS SIO -->
+                <div class="relative mb-12 md:mb-20">
+                    <div class="flex flex-col md:flex-row items-center">
+                        <div class="flex md:w-1/2 md:justify-end md:pr-12 pl-16 md:pl-0 relative">
+                            <span class="absolute left-6 md:left-full md:-translate-x-1/2 top-0 md:top-6 flex items-center justify-center w-8 h-8 rounded-full bg-white dark:bg-dark border-2 border-primary z-10 shadow-[0_0_15px_rgba(99,102,241,0.5)] -translate-x-1/2">
+                                <i class="fas fa-code text-[10px] text-primary"></i>
+                            </span>
+                            <div class="bg-white dark:bg-darker border border-slate-200 dark:border-white/10 p-6 rounded-2xl relative w-full md:w-auto md:max-w-md group hover:border-primary/50 transition-all shadow-lg">
+                                <div class="hidden md:block absolute top-6 -right-2 w-4 h-4 bg-white dark:bg-darker border-t border-r border-slate-200 dark:border-white/10 rotate-45 group-hover:border-primary/50 transition-all"></div>
+                                <div class="md:hidden absolute top-6 -left-2 w-4 h-4 bg-white dark:bg-darker border-b border-l border-slate-200 dark:border-white/10 rotate-45 group-hover:border-primary/50 transition-all"></div>
+                                
+                                <span class="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold mb-3 border border-primary/20">Sept 2025 - Présent</span>
+                                <h3 class="text-xl font-bold text-slate-900 dark:text-white">BTS SIO - Option SLAM</h3>
+                                <p class="text-slate-600 dark:text-slate-400 text-sm mt-2 leading-relaxed">
+                                    Retour aux études avec un objectif clair. Apprentissage intensif du développement (Java, Symfony) et gestion de projets.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="hidden md:block md:w-1/2"></div>
+                    </div>
+                </div>
+
+                <!-- Étape 3 : Autodidacte -->
+                <div class="relative mb-12 md:mb-20">
+                    <div class="flex flex-col md:flex-row items-center">
+                        <div class="hidden md:block md:w-1/2"></div>
+                        <div class="flex md:w-1/2 md:justify-start md:pl-12 pl-16 relative">
+                            <span class="absolute left-6 md:left-0 md:-translate-x-1/2 top-0 md:top-6 flex items-center justify-center w-8 h-8 rounded-full bg-white dark:bg-dark border-2 border-pink-500 z-10 -translate-x-1/2">
+                                <i class="fas fa-laptop-house text-[10px] text-pink-500"></i>
+                            </span>
+                            <div class="bg-white dark:bg-darker border border-slate-200 dark:border-white/10 p-6 rounded-2xl relative w-full md:w-auto md:max-w-md group hover:border-pink-500/30 transition-all">
+                                <div class="hidden md:block absolute top-6 -left-2 w-4 h-4 bg-white dark:bg-darker border-b border-l border-slate-200 dark:border-white/10 rotate-45 group-hover:border-pink-500/30 transition-all"></div>
+                                <div class="md:hidden absolute top-6 -left-2 w-4 h-4 bg-white dark:bg-darker border-b border-l border-slate-200 dark:border-white/10 rotate-45 group-hover:border-pink-500/30 transition-all"></div>
+                                
+                                <span class="inline-block px-3 py-1 rounded-full bg-pink-500/10 text-pink-500 text-xs font-bold mb-3 border border-pink-500/20">2024 - 2025</span>
+                                <h3 class="text-xl font-bold text-slate-900 dark:text-white">Année de Formation Autodidacte</h3>
+                                <p class="text-slate-600 dark:text-slate-400 text-sm mt-2 leading-relaxed">
+                                    Année pivot. J'ai quitté la fac pour me former seul, coder mes premiers projets et confirmer que ma place était devant un IDE, pas un tableau noir.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Étape 4 : Licence Math -->
+                <div class="relative mb-12 md:mb-20">
+                    <div class="flex flex-col md:flex-row items-center">
+                        <div class="flex md:w-1/2 md:justify-end md:pr-12 pl-16 md:pl-0 relative">
+                            <span class="absolute left-6 md:left-full md:-translate-x-1/2 top-0 md:top-6 flex items-center justify-center w-8 h-8 rounded-full bg-white dark:bg-dark border-2 border-slate-600 z-10 -translate-x-1/2">
+                                <i class="fas fa-square-root-alt text-[10px] text-slate-400"></i>
+                            </span>
+                            <div class="bg-white dark:bg-darker border border-slate-200 dark:border-white/10 p-6 rounded-2xl relative w-full md:w-auto md:max-w-md group hover:border-white/30 transition-all">
+                                <div class="hidden md:block absolute top-6 -right-2 w-4 h-4 bg-white dark:bg-darker border-t border-r border-slate-200 dark:border-white/10 rotate-45 group-hover:border-white/30 transition-all"></div>
+                                <div class="md:hidden absolute top-6 -left-2 w-4 h-4 bg-white dark:bg-darker border-b border-l border-slate-200 dark:border-white/10 rotate-45 group-hover:border-white/30 transition-all"></div>
+                                
+                                <span class="inline-block px-3 py-1 rounded-full bg-slate-200 dark:bg-white/5 text-slate-600 dark:text-slate-300 text-xs font-bold mb-3">2022 - 2024</span>
+                                <h3 class="text-xl font-bold text-slate-900 dark:text-white">Licence Mathématiques</h3>
+                                <p class="text-slate-600 dark:text-slate-400 text-sm mt-2 leading-relaxed">
+                                    Deux ans d'abstraction pure. J'ai acquis une rigueur logique, mais j'ai réalisé que je voulais construire des choses concrètes. Abandon pour suivre ma passion.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="hidden md:block md:w-1/2"></div>
+                    </div>
+                </div>
+
+                <!-- Étape 5 : Dubaï (Année Sabbatique) -->
+                <div class="relative mb-12 md:mb-20">
+                    <div class="flex flex-col md:flex-row items-center">
+                        <div class="hidden md:block md:w-1/2"></div>
+                        <div class="flex md:w-1/2 md:justify-start md:pl-12 pl-16 relative">
+                            <span class="absolute left-6 md:left-0 md:-translate-x-1/2 top-0 md:top-6 flex items-center justify-center w-8 h-8 rounded-full bg-white dark:bg-dark border-2 border-orange-500 z-10 -translate-x-1/2">
+                                <i class="fas fa-globe-asia text-[10px] text-orange-500"></i>
+                            </span>
+                            <div class="bg-white dark:bg-darker border border-slate-200 dark:border-white/10 p-6 rounded-2xl relative w-full md:w-auto md:max-w-md group hover:border-orange-500/30 transition-all">
+                                <div class="hidden md:block absolute top-6 -left-2 w-4 h-4 bg-white dark:bg-darker border-b border-l border-slate-200 dark:border-white/10 rotate-45 group-hover:border-orange-500/30 transition-all"></div>
+                                <div class="md:hidden absolute top-6 -left-2 w-4 h-4 bg-white dark:bg-darker border-b border-l border-slate-200 dark:border-white/10 rotate-45 group-hover:border-orange-500/30 transition-all"></div>
+                                
+                                <span class="inline-block px-3 py-1 rounded-full bg-orange-500/10 text-orange-500 text-xs font-bold mb-3 border border-orange-500/20">2021 - 2022</span>
+                                <h3 class="text-xl font-bold text-slate-900 dark:text-white">Année Sabbatique à Dubaï</h3>
+                                <p class="text-slate-600 dark:text-slate-400 text-sm mt-2 leading-relaxed">
+                                    Immersion internationale. C'est ici, au contact d'un environnement ultra-moderne, que j'ai découvert le potentiel de l'informatique.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Étape 6 : Baccalauréat -->
+                <div class="relative mb-12 md:mb-20">
+                    <div class="flex flex-col md:flex-row items-center">
+                        <div class="flex md:w-1/2 md:justify-end md:pr-12 pl-16 md:pl-0 relative">
+                            <span class="absolute left-6 md:left-full md:-translate-x-1/2 top-0 md:top-6 flex items-center justify-center w-8 h-8 rounded-full bg-white dark:bg-dark border-2 border-slate-700 z-10 -translate-x-1/2">
+                                <i class="fas fa-graduation-cap text-[10px] text-slate-500"></i>
+                            </span>
+                            <div class="bg-white dark:bg-darker border border-slate-200 dark:border-white/10 p-6 rounded-2xl relative w-full md:w-auto md:max-w-md group hover:border-white/30 transition-all">
+                                <div class="hidden md:block absolute top-6 -right-2 w-4 h-4 bg-white dark:bg-darker border-t border-r border-slate-200 dark:border-white/10 rotate-45 group-hover:border-white/30 transition-all"></div>
+                                <div class="md:hidden absolute top-6 -left-2 w-4 h-4 bg-white dark:bg-darker border-b border-l border-slate-200 dark:border-white/10 rotate-45 group-hover:border-white/30 transition-all"></div>
+                                
+                                <span class="inline-block px-3 py-1 rounded-full bg-slate-200 dark:bg-white/5 text-slate-600 dark:text-slate-300 text-xs font-bold mb-3">2021</span>
+                                <h3 class="text-xl font-bold text-slate-900 dark:text-white">Baccalauréat Général</h3>
+                                <p class="text-slate-600 dark:text-slate-400 text-sm mt-2 leading-relaxed">
+                                    Spécialités Mathématiques & Physique-Chimie. Le socle scientifique initial.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="hidden md:block md:w-1/2"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- === PIED DE PAGE (Footer) === -->
+    <footer class="relative bg-slate-100 dark:bg-darker border-t border-slate-200 dark:border-white/5 pt-16 pb-8 overflow-hidden">
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[1px] bg-gradient-to-r from-transparent via-primary/50 to-transparent"></div>
+        <div class="absolute bottom-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px] pointer-events-none"></div>
+        <div class="absolute top-20 left-10 w-32 h-32 bg-secondary/5 rounded-full blur-[60px] pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-8 mb-12">
+                
+                <div class="text-center md:text-left">
+                    <div class="font-bold text-2xl text-slate-900 dark:text-white tracking-tighter mb-2 group cursor-default">
+                        Mehdi <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary group-hover:to-primary transition-all duration-500">BELMILOUD</span>
+                    </div>
+                    <div class="mt-3 flex items-center justify-center md:justify-start gap-2 text-sm font-mono text-slate-500 dark:text-slate-400 bg-slate-200 dark:bg-white/5 px-4 py-2 rounded-lg border border-slate-300 dark:border-white/5 max-w-fit mx-auto md:mx-0 shadow-inner">
+                        <span class="text-primary">➜</span>
+                        <span id="footer-typewriter" class="text-secondary"></span>
+                        <span class="w-1.5 h-4 bg-secondary animate-pulse"></span>
+                    </div>
+                </div>
+
+                <div class="flex gap-5">
+                    <a href="https://www.linkedin.com/in/mehdi-belmiloud-9656b9356" target="_blank" aria-label="LinkedIn"
+                       class="group relative w-12 h-12 flex items-center justify-center rounded-xl bg-slate-200 dark:bg-white/5 border border-slate-300 dark:border-white/10 transition-all duration-300 hover:-translate-y-1 hover:bg-[#0077b5] hover:border-[#0077b5] hover:shadow-[0_0_25px_rgba(0,119,181,0.5)]">
+                        <i class="fab fa-linkedin-in text-lg text-slate-500 dark:text-slate-400 group-hover:text-white transition-colors"></i>
+                    </a>
+
+                    <a href="https://github.com/Lnnzzz-00" target="_blank" aria-label="GitHub"
+                       class="group relative w-12 h-12 flex items-center justify-center rounded-xl bg-slate-200 dark:bg-white/5 border border-slate-300 dark:border-white/10 transition-all duration-300 hover:-translate-y-1 hover:bg-slate-800 dark:hover:bg-white/20 hover:border-slate-900 dark:hover:border-white hover:shadow-[0_0_25px_rgba(40,40,40,0.3)] dark:hover:shadow-[0_0_25px_rgba(255,255,255,0.3)]">
+                        <i class="fab fa-github text-lg text-slate-500 dark:text-slate-400 group-hover:text-white transition-colors"></i>
+                    </a>
+
+                    <a href="https://t.me/Lnnzzz" target="_blank" aria-label="Telegram"
+                       class="group relative w-12 h-12 flex items-center justify-center rounded-xl bg-slate-200 dark:bg-white/5 border border-slate-300 dark:border-white/10 transition-all duration-300 hover:-translate-y-1 hover:bg-[#229ED9] hover:border-[#229ED9] hover:shadow-[0_0_25px_rgba(34,158,217,0.5)]">
+                        <i class="fab fa-telegram-plane text-lg text-slate-500 dark:text-slate-400 group-hover:text-white transition-colors"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="border-t border-slate-200 dark:border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-slate-500 font-mono">
+                <div class="mb-2 md:mb-0">
+                    &copy; 2026 Mehdi BELMILOUD. Tous droits réservés.
+                </div>
+                <div class="flex items-center gap-2 px-3 py-1 rounded-full bg-slate-200 dark:bg-white/5 border border-slate-300 dark:border-white/5">
+                    <span class="relative flex h-2 w-2">
+                      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                      <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                    </span>
+                    <span class="text-slate-600 dark:text-slate-400">Systèmes opérationnels</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
