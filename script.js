@@ -223,63 +223,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    /**
-     * SYSTÈME DE FILTRES
-     * Trie les cartes projets en fonction de la catégorie sélectionnée.
-     */
-    const categoryFilters = document.querySelectorAll('#category-filters .filter-btn');
-    if (categoryFilters.length > 0) {
-        const projectGrid = document.getElementById('projects-grid');
-        const projectCards = Array.from(projectGrid.querySelectorAll('.project-card'));
-
-        let currentFilter = 'all';
-
-        function applyFilters() {
-            // 1. Masquer toutes les cartes
-            projectCards.forEach(card => {
-                card.style.opacity = '0';
-                card.style.transform = 'translateY(20px) scale(0.95)';
-            });
-
-            setTimeout(() => {
-                // 2. Filtrer
-                const visibleCards = projectCards.filter(card => {
-                    return currentFilter === 'all' || card.dataset.category === currentFilter;
-                });
-
-                // 3. Réorganiser la grille
-                projectGrid.innerHTML = '';
-                if (visibleCards.length > 0) {
-                    visibleCards.forEach(card => projectGrid.appendChild(card));
-                } else {
-                    projectGrid.innerHTML = `<p class="text-slate-400 col-span-full text-center py-10">Aucun projet dans cette catégorie pour le moment.</p>`;
-                }
-
-                // 4. Réafficher les cartes visibles
-                setTimeout(() => {
-                    visibleCards.forEach(card => {
-                        card.style.opacity = '1';
-                        card.style.transform = 'translateY(0) scale(1)';
-                    });
-                }, 50);
-
-            }, 300);
-        }
-
-        // Gestion du clic sur les boutons
-        categoryFilters.forEach(btn => {
-            btn.addEventListener('click', () => {
-                // Retirer la classe active de tous les boutons
-                categoryFilters.forEach(b => b.classList.remove('active'));
-                // Ajouter la classe active au bouton cliqué
-                btn.classList.add('active');
-                
-                currentFilter = btn.dataset.filter;
-                applyFilters();
-            });
-        });
-    }
-
     /* ==========================================================================
        SECTION : EFFETS VISUELS (Toutes pages)
        ========================================================================== */

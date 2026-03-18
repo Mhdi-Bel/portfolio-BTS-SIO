@@ -100,33 +100,6 @@
             <p class="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto text-lg mb-12">
                 Exploration technique et créative. Chaque projet est une réponse à un problème complexe.
             </p>
-
-            <!-- Filtres de Catégories -->
-            <div
-                class="relative z-20 mx-auto max-w-fit backdrop-blur-sm bg-white dark:bg-white/5 rounded-2xl p-2 border border-slate-200 dark:border-white/10 shadow-xl shadow-slate-200/50 dark:shadow-2xl">
-                <div class="flex flex-col md:flex-row items-center justify-center gap-4 p-2">
-                    <div id="category-filters" class="flex flex-wrap justify-center gap-2">
-                        <button
-                            class="filter-btn active px-4 py-2 rounded-xl text-xs font-bold transition-all text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white [&.active]:bg-slate-200 dark:[&.active]:bg-white/10 [&.active]:text-slate-900 dark:[&.active]:text-white [&.active]:shadow-[0_0_10px_rgba(0,0,0,0.1)] dark:[&.active]:shadow-[0_0_10px_rgba(255,255,255,0.1)]"
-                            data-filter="all">Tout</button>
-                        <button
-                            class="filter-btn px-4 py-2 rounded-xl text-xs font-bold transition-all text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white [&.active]:bg-slate-200 dark:[&.active]:bg-white/10 [&.active]:text-slate-900 dark:[&.active]:text-white [&.active]:shadow-[0_0_10px_rgba(0,0,0,0.1)] dark:[&.active]:shadow-[0_0_10px_rgba(255,255,255,0.1)]"
-                            data-filter="frontend">Frontend</button>
-                        <button
-                            class="filter-btn px-4 py-2 rounded-xl text-xs font-bold transition-all text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white [&.active]:bg-slate-200 dark:[&.active]:bg-white/10 [&.active]:text-slate-900 dark:[&.active]:text-white [&.active]:shadow-[0_0_10px_rgba(0,0,0,0.1)] dark:[&.active]:shadow-[0_0_10px_rgba(255,255,255,0.1)]"
-                            data-filter="fullstack">Fullstack</button>
-                        <button
-                            class="filter-btn px-4 py-2 rounded-xl text-xs font-bold transition-all text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white [&.active]:bg-slate-200 dark:[&.active]:bg-white/10 [&.active]:text-slate-900 dark:[&.active]:text-white [&.active]:shadow-[0_0_10px_rgba(0,0,0,0.1)] dark:[&.active]:shadow-[0_0_10px_rgba(255,255,255,0.1)]"
-                            data-filter="software">Software</button>
-                        <button
-                            class="filter-btn px-4 py-2 rounded-xl text-xs font-bold transition-all text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white [&.active]:bg-slate-200 dark:[&.active]:bg-white/10 [&.active]:text-slate-900 dark:[&.active]:text-white [&.active]:shadow-[0_0_10px_rgba(0,0,0,0.1)] dark:[&.active]:shadow-[0_0_10px_rgba(255,255,255,0.1)]"
-                            data-filter="api">Backend</button>
-                        <button
-                            class="filter-btn px-4 py-2 rounded-xl text-xs font-bold transition-all text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white [&.active]:bg-slate-200 dark:[&.active]:bg-white/10 [&.active]:text-slate-900 dark:[&.active]:text-white [&.active]:shadow-[0_0_10px_rgba(0,0,0,0.1)] dark:[&.active]:shadow-[0_0_10px_rgba(255,255,255,0.1)]"
-                            data-filter="automation">Script & Automatisation</button>
-                    </div>
-                </div>
-            </div>
         </div>
     </section>
 
@@ -211,6 +184,46 @@
 
                         <div class="pt-4 border-t border-slate-200 dark:border-white/5 flex gap-4">
                             <a href="https://github.com/Lnnzzz-00/axe-s-permis" target="_blank" rel="noopener noreferrer" class="text-sm text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white flex items-center gap-2 transition-colors"><i class="fab fa-github"></i> Repository</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projet : Site Anime -->
+                <div class="project-card group relative bg-white dark:bg-darker border border-slate-200 dark:border-white/10 rounded-2xl overflow-hidden hover:border-primary/50 transition-all duration-500"
+                    data-category="frontend" data-type="perso" data-date="2024-05-01">
+                    <div class="h-48 bg-slate-100 dark:bg-slate-800 relative overflow-hidden">
+                        <div class="absolute inset-0 bg-gradient-to-t from-white dark:from-darker to-transparent z-10"></div>
+                        <!-- Pensez à ajouter une image "preview-anime.png" dans votre dossier assets -->
+                        <img src="assets/preview-jikan.png" alt="Aperçu Site Anime" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    </div>
+
+                    <div class="p-6 relative z-20">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <h3 class="text-xl font-bold text-slate-900 dark:text-white group-hover:text-primary transition-colors">
+                                        JikanExplorer</h3>
+                                <span class="text-xs text-blue-500 font-mono">Personnel</span>
+                            </div>
+                            <a href="https://site-anime-green.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Voir le projet"
+                                class="w-8 h-8 rounded-full bg-slate-100 dark:bg-white/5 flex items-center justify-center text-slate-500 dark:text-slate-400 hover:bg-primary hover:text-white transition-all"><i
+                                    class="fas fa-eye text-xs"></i></a>
+                        </div>
+
+                        <p class="text-slate-600 dark:text-slate-400 text-sm mb-6 line-clamp-3" title="Explorateur de MyAnimeList via l'API REST Jikan v4. Focus sur l'asynchronisme, la manipulation du DOM et la gestion du Rate Limiting.">
+                            Explorateur interactif de MyAnimeList utilisant l'API REST Jikan v4. Conçu pour approfondir la gestion de l'asynchronisme (fetch/Promises).
+                        </p>
+
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="px-2 py-1 rounded bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/5 text-[10px] text-slate-600 dark:text-slate-300">JavaScript</span>
+                            <span class="px-2 py-1 rounded bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/5 text-[10px] text-slate-600 dark:text-slate-300">Jikan API v4</span>
+                            <span class="px-2 py-1 rounded bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/5 text-[10px] text-slate-600 dark:text-slate-300">Tailwind CSS</span>
+                            <span class="px-2 py-1 rounded bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/5 text-[10px] text-slate-600 dark:text-slate-300">HTML5</span>
+                        </div>
+
+                        <div class="pt-4 border-t border-slate-200 dark:border-white/5 flex gap-4">
+                            <a href="https://github.com/Lnnzzz-00/Site-Anime" target="_blank" rel="noopener noreferrer"
+                                class="text-sm text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white flex items-center gap-2 transition-colors"><i
+                                    class="fab fa-github"></i> Repository</a>
                         </div>
                     </div>
                 </div>
