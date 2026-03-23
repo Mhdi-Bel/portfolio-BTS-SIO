@@ -206,20 +206,22 @@ document.addEventListener('DOMContentLoaded', () => {
      */
     const projectsContainer = document.getElementById('projects-grid');
     if (projectsContainer) {
-        const cards = projectsContainer.querySelectorAll('.project-card');
-        
-        // 1. État initial (masqué)
+        const cards = [...projectsContainer.querySelectorAll('.project-card')];
+
+        // 1. État initial masqué (légèrement décalé, rétréci, flou)
         cards.forEach(card => {
             card.style.opacity = '0';
-            card.style.transform = 'translateY(20px)';
+            card.style.transform = 'translateY(55px) scale(0.93)';
+            card.style.filter = 'blur(6px)';
         });
 
-        // 2. Animation en cascade
+        // 2. Apparition en cascade
         cards.forEach((card, index) => {
             setTimeout(() => {
                 card.style.opacity = '1';
-                card.style.transform = 'translateY(0)';
-            }, 100 + (index * 150));
+                card.style.transform = 'translateY(0) scale(1)';
+                card.style.filter = 'blur(0px)';
+            }, 180 + index * 160);
         });
     }
 
